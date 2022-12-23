@@ -10,9 +10,9 @@ Artist.destroy_all
 Concert.destroy_all
 User.destroy_all
 
-u1 = User.create(username: "Nickphelps34", password: 9362, email: "Nickphelps34@gmail.com", bio: “”)
-u2 = User.create(username: "kh582013", password: 9362, email: "kh582013@gmail.com", bio: “”)
-u3 = User.create(username: "cmccoy115", password: 9362, email: "caleb_mccoy115@yahoo.com", bio: “”)
+u1 = User.create(username: "Nickphelps34", password_digest: 9362, email: "Nickphelps34@gmail.com", bio: "" )
+u2 = User.create(username: "kh582013", password_digest: 9362, email: "kh582013@gmail.com", bio: "" )
+u3 = User.create(username: "cmccoy115", password_digest: 9362, email: "caleb_mccoy115@yahoo.com", bio: "" )
 
 puts "Seeding Artist..."
 a1 = Artist.create(name: "Subtronics", genre: "Electronic", album: "Fractals")
