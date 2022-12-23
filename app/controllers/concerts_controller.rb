@@ -8,7 +8,7 @@ class ConcertsController < ApplicationController
         if concert_found
             render json: concert_found
         else
-            render json: {"error": "Camper not found"}, status: :not_found
+            render json: {"error": "Concert not found"}, status: :not_found
         end
     end
 
@@ -55,6 +55,6 @@ class ConcertsController < ApplicationController
     end
 
     def new_concert_params
-        params.permit(:user_id, :artist_id, :city, :date)
+        params.permit(:user_id, :artist_id, :city, :date, :description)
     end
 end
