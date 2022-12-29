@@ -10,6 +10,19 @@ function App() {
   .then( r => r.json () )
   .then(console.log())
 
+const [username, setUsername]=useState("")
+const [password, setPassword]=useState("")
+
+const handleOnChangeUsername=(synthEvent)=>{
+
+  setUsername(synthEvent.target.value)
+
+}
+const handleOnChangePassword=(synthEvent)=>{
+
+  setPassword(synthEvent.target.value)
+
+}
 
 const handleLoginSubmit=(synthEvent)=>{
   synthEvent.preventDefault()
@@ -25,9 +38,11 @@ const handleLoginSubmit=(synthEvent)=>{
 
     <form onSubmit={handleLoginSubmit} >
 
-      <input/>
-      <input type="password"/>
-      <input type="submit"/>
+      <input onChange={handleOnChangeUsername}/>
+    
+      <input onChange={(handleOnChangePassword)=>{}}type="password"/>
+
+    <input type="submit"/>
 
 
     </form>
