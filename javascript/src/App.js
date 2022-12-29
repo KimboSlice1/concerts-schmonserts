@@ -11,13 +11,26 @@ function App() {
   .then(console.log())
 
 
-
+const handleLoginSubmit=(synthEvent)=>{
+  synthEvent.preventDefault()
+}
   return (
     
     
     <div className="App">
       <NavBar/>
      <h1>This is the home page motherfuckers</h1>
+
+    <h2>Wanna login?</h2>
+
+    <form onSubmit={handleLoginSubmit} >
+
+      <input/>
+      <input type="password"/>
+      <input type="submit"/>
+
+
+    </form>
     </div>
   );
 }
