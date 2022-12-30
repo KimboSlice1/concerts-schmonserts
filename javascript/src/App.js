@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import{useEffect, useState} from 'react'
+import{useEffect, useState} from 'react';
+// import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import NavBar from './NavBar'
 
 const concertsSchmonsertsURL="http://localhost:4000/"
@@ -32,6 +33,13 @@ const handleLoginSubmit=(synthEvent)=>{
     
     <div className="App">
       <NavBar/>
+      {/* <BrowserRouter>
+      <Switch>
+        <Route exact path={"/"} component={Home}/>
+        <Route exact path={"/artist"} component={Artist}/>
+        {/* I don't think I remember the name of the route */}
+      {/* </Switch>
+      </BrowserRouter> */}
      <h1>This is the home page motherfuckers</h1>
 
     <h2>Wanna login?</h2>
