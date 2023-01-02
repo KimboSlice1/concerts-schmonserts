@@ -33,7 +33,7 @@ const handleLoginSubmit=(synthEvent)=>{
     
     <div className="App">
       <NavBar/>
-      {/*
+{/*       
       <Routes>
         <Route path="/" element={ Home />} />
         <Route path="/artist" element={ Artist />} />
@@ -41,8 +41,8 @@ const handleLoginSubmit=(synthEvent)=>{
         {/* you were almost there just switch is no longer used and is replaced with Routes and 
         you dont need browser router that is only in the index.js file and instead of componets its elements
         i fixed the above syntax -Caleb */}
-      {/* <Routes>
-       */}
+      {/* <Routes> */}
+      
      <h1>This is the home page motherfuckers</h1>
 
     <h2>Wanna login?</h2>
@@ -57,6 +57,9 @@ const handleLoginSubmit=(synthEvent)=>{
 
 
     </form>
+    <div>
+      <h2>Registration goes here </h2>
+    </div>
     </div>
   );
 }
