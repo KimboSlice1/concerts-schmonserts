@@ -13,6 +13,9 @@ function NavBar() {
             <NavLink className='nav-links' to="/Artists">
                 Artists
             </NavLink>
+            <NavLink className='nav-links' to="/Search">
+                Search for Concerts
+            </NavLink>
         </div>
     )
 }
