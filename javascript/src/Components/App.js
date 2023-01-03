@@ -4,12 +4,20 @@ import{useEffect, useState} from 'react';
 import {Routes, Route} from 'react-router-dom';
 import NavBar from './NavBar'
 
-const concertsSchmonsertsURL="http://localhost:4000/"
+const concertsSchmonsertsURL="/concerts"
 
 function App() {
-  fetch( concertsSchmonsertsURL )
-  .then( r => r.json () )
-  .then(console.log())
+  const [appData, setAppData] = useState([])
+  useEffect(()=>{
+    fetch(concertsSchmonsertsURL)
+      .then(r => r.json())
+      .then(arrayOfData =>
+        setAppData(arrayOfData)
+        )
+  }, [])
+
+  console.log(appData)
+
 
 const [username, setUsername]=useState("")
 const [password, setPassword]=useState("")
