@@ -3,8 +3,9 @@ import{useEffect, useState} from 'react';
 import { Routes, Route} from 'react-router-dom';
 import NavBar from './NavBar'
 import Search from './ConcertSearch'
-import homePage from './Home'
+import HomePage from './Home'
 import ConcertContainer from './ConcertContainer';
+import Artist from "./Artist"
 
 
 
@@ -29,13 +30,27 @@ const filteredConcertData = concerts.filter((eachDataObj) => {
   return eachDataObj.city.toLowerCase().includes(searchText.toLowerCase())
 })
 
-// delete handler
+// delete concert handler
 function handleDeleteConcert(id) {
   const deleteConcert = concerts.filter(concert => concert.id !== id)
   setConcerts(deleteConcert)
 }
+  //console.log(concerts.artist)
 
-return (
+
+  const filteredArtistData = concerts.map((eachDataObj) => {
+    return eachDataObj.artist
+  })
+    //console.log(filteredArtistData)
+
+  // handle artist delete
+    function handleDeleteArtist(id) {
+      const deleteArtist = concerts.artist.filter(concert => concert.id !== id)
+      setConcerts(deleteArtist)
+    }
+    
+    
+    return (
   
   
   <div className="App">
@@ -43,14 +58,11 @@ return (
 
         <Routes>
           
-          <Route path="/" element={homePage} />
+          <Route path="/" element={ <HomePage />  } />
        
           <Route path="/TheConcerts" element={ <ConcertContainer filteredConcertData={filteredConcertData} setConcerts={setConcerts} handleDeleteConcert={handleDeleteConcert}  />}/>
           <Route path="/search" element={ <Search searchText={searchText} setSearchText={setSearchText}/>}  />
-          
-          
-      
-          <Route path="/Artists" element />
+          <Route path="/Artists" element={ <Artist filteredConcertData={filteredArtistData} handleDeleteArtist={handleDeleteArtist} setConcerts={setConcerts}/>} />
           
         </Routes>
 

@@ -2,7 +2,7 @@
 import React, {useState} from 'react'
 import LoginRegistration from './LoginRegistration'
 
-function homePage(props){
+function HomePage(props){
 
 return(
     <div>
@@ -44,4 +44,4 @@ return(
 //     </form>
 //     </div>
 
-export default homePage;
+export default HomePage;
