@@ -3,12 +3,12 @@ import AddArtist from "./AddArtist"
 import { Route, Routes } from "react-router-dom"
 // import AddArtist from "/addArtist"
 
-const Artist = (filteredArtistData, handleDeleteArtist, setConcerts) => {
-let deleteArtist = (handleDeleteArtist);
-let artistData = (filteredArtistData);
-let concertData = (setConcerts);
+const Artist = ({filteredArtistData, handleDeleteArtist, setConcerts}) => {
+  let deleteArtist = (handleDeleteArtist);
+  let artistDataInfo = (filteredArtistData);
+  let concertData = (setConcerts);
 
-console.log(artistData)
+//console.log(concertData)
 
 
   return (
@@ -18,7 +18,7 @@ console.log(artistData)
 
         <h3 className='artist-info'>Text Box</h3>
         <Routes>
-          <Route path="/AddArtist" element={ <AddArtist  filteredArtistData={artistData} setArtist={concertData} handleDeleteArtist={deleteArtist}/> }/>
+          <Route path="/AddArtist" element={ <AddArtist artistDataInfo={artistDataInfo} concertData={concertData} deleteArtist={deleteArtist}/> }/>
         </Routes>
     </div>
 

@@ -1,12 +1,14 @@
 import React, {useState} from "react";
+import {Routes, Route} from "react-router-dom"
 
-  const AddArtist = (filteredArtistData, handleDeleteArtist, setConcerts) => {
-      console.log(filteredArtistData)
+  const AddArtist = (artistDataInfo, concertData, deleteArtist) => {
+      
     const [artistData, setArtistData] = useState({
       name: "",
       genre: "",
       album: ""
     })
+    //console.log(artistDataInfo)
     const handleSubmit = (e) => {
       e.preventDefault()
       fetch("/artist", {
@@ -15,7 +17,7 @@ import React, {useState} from "react";
           body: JSON.stringify(artistData)
       }).then( r => r.json())
         .then(data =>{
-          setConcerts([...filteredArtistData, data])
+          setArtistData([...artistDataInfo, data])
           setArtistData(data)
         })
   }

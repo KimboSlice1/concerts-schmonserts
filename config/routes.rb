@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :artists
   resources :users
   resources :sessions, only: [:create]
+  resources :addartists, only: [ :show ]
 #   update later when adding delete and shit
 #   delete :logout, to: "sessions#logout"
 #   get :logged_in, to: "sessions#logged_in"
