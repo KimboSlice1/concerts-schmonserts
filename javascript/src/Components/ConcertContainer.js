@@ -34,7 +34,7 @@ function ConcertContainer({filteredConcertData, setConcerts, handleDeleteConcert
 <form id="form" onSubmit={handleSubmit}>
     <input className="input_field" value={formData.city} placeholder="City" name="city" type="text" onChange={handleChange} />
     <input className="input_field" value={formData.date} placeholder="Date" name="date" type="number" onChange={handleChange} />
-    <input className="input_field" value={formData.description} placeholder="Description" name="description" type="number" onChange={handleChange} />
+    <input className="input_field" value={formData.description} placeholder="Description" name="description" type="text" onChange={handleChange} />
    
     <br/>
 </form>
