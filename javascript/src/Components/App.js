@@ -62,7 +62,7 @@ function handleDeleteConcert(id) {
        
           <Route path="/TheConcerts" element={ <ConcertContainer filteredConcertData={filteredConcertData} setConcerts={setConcerts} handleDeleteConcert={handleDeleteConcert}  />}/>
           <Route path="/search" element={ <Search searchText={searchText} setSearchText={setSearchText}/>}  />
-          <Route path="/Artists" element={ <Artist filteredConcertData={filteredArtistData} handleDeleteArtist={handleDeleteArtist} setConcerts={setConcerts}/>} />
+          <Route path="/Artists" element={ <Artist filteredConcertData={filteredArtistData} handleDeleteArtist={handleDeleteArtist} setConcerts={setConcerts}/>} /> 
           
         </Routes>
 

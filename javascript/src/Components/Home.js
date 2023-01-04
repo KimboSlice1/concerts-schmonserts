@@ -7,6 +7,8 @@ function HomePage(props){
 return(
     <div>
         <LoginRegistration login={props}/>
+
+        <h1>Hello</h1>
     </div>
 )
 }
