@@ -27,7 +27,9 @@ function App() {
 const [searchText, setSearchText] = useState("")
 
 const filteredConcertData = concerts.filter((eachDataObj) => {
-  return eachDataObj.city.toLowerCase().includes(searchText.toLowerCase())
+  // console.log(eachDataObj.city)
+  return eachDataObj.city.toLowerCase().includes(searchText.toLowerCase()) ||
+         eachDataObj.description.toLowerCase().includes(searchText.toLowerCase()) 
 })
 
 // delete concert handler
