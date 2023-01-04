@@ -1,9 +1,9 @@
-
 import '../App.css';
 import{useEffect, useState} from 'react';
-import {Routes, Route} from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import NavBar from './NavBar'
-import Search from './ConcertSeacrh'
+import Search from './ConcertSearch'
+import homePage from './Home'
 
 
 
@@ -23,23 +23,23 @@ function App() {
   // console.log(appData)
 
 
-const [username, setUsername]=useState("")
-const [password, setPassword]=useState("")
+// const [username, setUsername]=useState("")
+// const [password, setPassword]=useState("")
 
-const handleOnChangeUsername=(synthEvent)=>{
+// const handleOnChangeUsername=(synthEvent)=>{
 
-  setUsername(synthEvent.target.value)
+//   setUsername(synthEvent.target.value)
 
-}
-const handleOnChangePassword=(synthEvent)=>{
+// }
+// const handleOnChangePassword=(synthEvent)=>{
 
-  setPassword(synthEvent.target.value)
+//   setPassword(synthEvent.target.value)
 
-}
+// }
 
-const handleLoginSubmit=(synthEvent)=>{
-  synthEvent.preventDefault()
-}
+// const handleLoginSubmit=(synthEvent)=>{
+//   synthEvent.preventDefault()
+// }
 
 // search filter 
 const [searchText, setSearchText] = useState("")
@@ -55,8 +55,13 @@ return (
       <NavBar/>
 
         <Routes>
-
-          <Route path="/search" element={ <Search searchText={searchText} setSearchText={setSearchText}/>}  />
+        {/* <Switch> */}
+        <Route exact path="/" component={homePage} />
+        <Route exact path="/Concerts" component/>
+        <Route exact path="/Artists" component />
+        <Route path="/search" element={ <Search searchText={searchText} setSearchText={setSearchText}/>}  />
+      {/* </Switch> */}
+          
       </Routes>
 
 {/*       
@@ -71,7 +76,7 @@ return (
       
 
       <h1>This is the home page motherfuckers</h1>
-    <h2>Wanna login?</h2>
+    {/* <h2>Wanna login?</h2>
 
     <form onSubmit={handleLoginSubmit} >
 
@@ -82,7 +87,7 @@ return (
     <input type="submit"/>
 
 
-    </form>
+    </form> */}
     <div>
       <h2>Registration goes here </h2>
     </div>
