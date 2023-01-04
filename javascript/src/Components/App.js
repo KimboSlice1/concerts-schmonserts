@@ -4,49 +4,36 @@ import { Routes, Route} from 'react-router-dom';
 import NavBar from './NavBar'
 import Search from './ConcertSearch'
 import homePage from './Home'
-
+import ConcertContainer from './ConcertContainer';
 
 
 
 const concertsSchmonsertsURL="/concerts"
 
 function App() {
-  const [appData, setAppData] = useState([])
+  const [concerts, setConcerts] = useState([]);
   useEffect(()=>{
     fetch(concertsSchmonsertsURL)
       .then(r => r.json())
       .then(arrayOfData =>
-        setAppData(arrayOfData)
+        setConcerts(arrayOfData)
         )
   }, [])
 
-  // console.log(appData)
-
-
-// const [username, setUsername]=useState("")
-// const [password, setPassword]=useState("")
-
-// const handleOnChangeUsername=(synthEvent)=>{
-
-//   setUsername(synthEvent.target.value)
-
-// }
-// const handleOnChangePassword=(synthEvent)=>{
-
-//   setPassword(synthEvent.target.value)
-
-// }
-
-// const handleLoginSubmit=(synthEvent)=>{
-//   synthEvent.preventDefault()
-// }
+  
 
 // search filter 
 const [searchText, setSearchText] = useState("")
 
-const filteredConcertData = appData.filter((eachDataObj) => {
+const filteredConcertData = concerts.filter((eachDataObj) => {
   return eachDataObj.city.toLowerCase().includes(searchText.toLowerCase())
 })
+
+// delete handler
+function handleDeleteConcert(id) {
+  const deleteConcert = concerts.filter(concert => concert.id !== id)
+  setConcerts(deleteConcert)
+}
 
 return (
   
@@ -55,42 +42,18 @@ return (
       <NavBar/>
 
         <Routes>
-        {/* <Switch> */}
-        <Route exact path="/" component={homePage} />
-        <Route exact path="/Concerts" component/>
-        <Route exact path="/Artists" component />
-        <Route path="/search" element={ <Search searchText={searchText} setSearchText={setSearchText}/>}  />
-      {/* </Switch> */}
           
-      </Routes>
-
-{/*       
-      <Routes>
-      <Route path="/" element={ <Home />} />
-      <Route path="/artist" element={ <Artist />} />
-      {/* I don't think I remember the name of the route */}
-        {/* you were almost there just switch is no longer used and is replaced with Routes and 
-        you dont need browser router that is only in the index.js file and instead of componets its elements
-      i fixed the above syntax -Caleb */}
-      {/* <Routes> */}
+          <Route path="/" element={homePage} />
+       
+          <Route path="/TheConcerts" element={ <ConcertContainer filteredConcertData={filteredConcertData} setConcerts={setConcerts} handleDeleteConcert={handleDeleteConcert}  />}/>
+          <Route path="/search" element={ <Search searchText={searchText} setSearchText={setSearchText}/>}  />
+          
+          
       
+          <Route path="/Artists" element />
+          
+        </Routes>
 
-      <h1>This is the home page motherfuckers</h1>
-    {/* <h2>Wanna login?</h2>
-
-    <form onSubmit={handleLoginSubmit} >
-
-      <input onChange={handleOnChangeUsername}/>
-    
-      <input onChange={(handleOnChangePassword)=>{}}type="password"/>
-
-    <input type="submit"/>
-
-
-    </form> */}
-    <div>
-      <h2>Registration goes here </h2>
-    </div>
     </div>
   );
 }
