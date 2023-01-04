@@ -1,10 +1,12 @@
 import{useState} from 'react';
 
+
+
 function loginRegistration(props){
 
-const [username, setUsername]=useState("")
-const [password, setPassword]=useState("")
 
+    const [username, setUsername]=useState("")
+    const [password, setPassword]=useState("")
 
     const handleOnChangeUsername=(synthEvent)=>{
 
@@ -24,7 +26,7 @@ const [userToLogin, updateUserToLoginInfo]=useState(
 
 const handleUserLoginOnChange=(synthEvent)=>{
 
-    updateUserToLoginInfo({...userToLogin, [synthEvent.target.name]: synthEvent.target.value})
+updateUserToLoginInfo({...userToLogin, [synthEvent.target.name]: synthEvent.target.value})
 
 }
 
@@ -60,4 +62,4 @@ const handleLoginSubmit=(synthEvent)=>{
     </form>
     </div>
 }
-    export default loginRegistration;
+    export default LoginRegistration;

@@ -1,12 +1,12 @@
 // import{useState} from 'react';
 import React, {useState} from 'react'
-import Login from './LoginRegistration'
+import LoginRegistration from './LoginRegistration'
 
-function homePage(){
+function homePage(props){
 
 return(
     <div>
-        <LoginRegistration Login={Login}/>
+        <LoginRegistration login={props}/>
     </div>
 )
 }
