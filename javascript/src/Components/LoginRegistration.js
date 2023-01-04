@@ -2,7 +2,7 @@ import{useState} from 'react';
 
 
 
-function loginRegistration(props){
+function useLoginRegistration(props){
 
 
     const [username, setUsername]=useState("")
@@ -62,4 +62,4 @@ const handleLoginSubmit=(synthEvent)=>{
     </form>
     </div>
 }
-    export default LoginRegistration;
+    export default useLoginRegistration;
