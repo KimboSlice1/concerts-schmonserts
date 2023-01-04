@@ -1,7 +1,6 @@
 import {useState} from 'react'
 
 function ConcertContainer({filteredConcertData, setConcerts, handleDeleteConcert}) {
-
     const [formData, setFormData] = useState({
         city: "",
         date: "",

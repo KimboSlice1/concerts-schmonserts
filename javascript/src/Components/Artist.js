@@ -1,39 +1,25 @@
 import React, {useState} from "react"
+import AddArtist from "./AddArtist"
+import { Route, Routes } from "react-router-dom"
+// import AddArtist from "/addArtist"
 
-const Artist = (filteredArtistData, handleDeleteArtist, setConcerts ) => {
+const Artist = (filteredArtistData, handleDeleteArtist, setConcerts) => {
+let deleteArtist = (handleDeleteArtist);
+let artistData = (filteredArtistData);
+let concertData = (setConcerts);
 
-  const [artistData, setArtistData] = useState({
-    name: "",
-    genre: "",
-    album: ""
-  })
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    fetch("/artist", {
-        method: "POST",
-        header:{"Content-Type": "application/json"},
-        body: JSON.stringify(artistData)
-    }).then( r => r.json())
-      .then(data =>{
-        setConcerts([...filteredArtistData, data])
-        setArtistData(data)
-      })
-}
-const handleChange = (e) => {
-  const value = e.target.value
-  const name = e.target.name //key
-  setArtistData({...artistData, [name]:value})
-}
+console.log(artistData)
+
 
   return (
-    <div className='Artist'>
-      
-      
-      <h1 className='artist-name'>{Artist.id}</h1>
+    <div>
 
-      <h3 className='artist-info'>Text Box</h3>
+        <h2 className='artist-name'>Killaz in the Jungle</h2>
 
-
+        <h3 className='artist-info'>Text Box</h3>
+        <Routes>
+          <Route path="/AddArtist" element={ <AddArtist  filteredArtistData={artistData} setArtist={concertData} handleDeleteArtist={deleteArtist}/> }/>
+        </Routes>
     </div>
 
   )
