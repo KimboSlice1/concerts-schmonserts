@@ -60,4 +60,3 @@ ApplicationRecord::RecordInvalid, with: :user_unable_to_create
         user_to_find = User.find_by(id:params[:id])
     end
 
-    end
