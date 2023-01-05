@@ -1,5 +1,28 @@
 class SessionsController < ApplicationController
 
+
+
+  def login
+    user_to_find_to_login=User.find_by(username: params[:username])
+
+
+  if user_to_find_to_login #now we want to verify their password
+
+    if user_to_find_to_login.authenticate(params[:password])
+      render json: user_to_find_to_login
+
+    else 
+      render json: {error: "**Check Your Password, Homie**"}
+    end
+
+    else
+      render json: {error: "Username OR Password Don't Match "}
+    end
+
+  end
+
+end
+
 # include CurrentUserConcern
 
   # def create
