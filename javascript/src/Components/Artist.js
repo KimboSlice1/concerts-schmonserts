@@ -17,9 +17,6 @@ const Artist = ({filteredArtistData, handleDeleteArtist, setConcerts}) => {
         <h2 className='artist-name'>Killaz in the Jungle</h2>
 
         <h3 className='artist-info'>Text Box</h3>
-        <Routes>
-          <Route path="/AddArtist" element={ <AddArtist artistDataInfo={artistDataInfo} concertData={concertData} deleteArtist={deleteArtist}/> }/>
-        </Routes>
     </div>
 
   )
