@@ -25,7 +25,7 @@ function ConcertContainer({addConcert, concerts}) {
     }
   
 // console.log(concerts)
-        
+
 return (
     <form onSubmit={handleSubmit}>
       <label>
@@ -60,6 +60,7 @@ return (
           {concerts.map(concerts => ( 
             <option  value={concerts.artist.id}>{concerts.artist.name}</option>
           ))}
+          
         </select>
       </label>
       <br />

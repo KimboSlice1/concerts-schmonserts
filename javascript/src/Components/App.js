@@ -48,13 +48,7 @@ function handleDeleteConcert(id) {
     // console.log(filteredArtistData)
 
   // handle artist delete
-    function handleDeleteArtist(id) {
-      const deleteArtist = concerts.artist.filter(concert => concert.id !== id)
-      setConcerts(deleteArtist)
-    }
-    
-    
-    return (
+return (
   
   
   <div className="App">
@@ -66,8 +60,8 @@ function handleDeleteConcert(id) {
        
           <Route path="/TheConcerts" element={ <ConcertContainer concerts={concerts} addConcert={addConcert} setConcerts={setConcerts} handleDeleteConcert={handleDeleteConcert}  />}/>
           <Route path="/search" element={ <Search searchText={searchText} setSearchText={setSearchText}/>}  />
-          <Route path="/Artists/*" element={ <Artist filteredArtistData={filteredArtistData} handleDeleteArtist={handleDeleteArtist} setConcerts={setConcerts}/>} /> 
-          <Route path="/AddArtist" element={ <AddArtist filteredArtistData={filteredArtistData} handleDeleteArtist={handleDeleteArtist} setConcerts={setConcerts}/> }/>
+          <Route path="/Artists/*" element={ <Artist filteredArtistData={filteredArtistData}  setConcerts={setConcerts}/>} /> 
+          <Route path="/AddArtist" element={ <AddArtist filteredArtistData={filteredArtistData}  setConcerts={setConcerts}/> }/>
         </Routes>
 
     </div>

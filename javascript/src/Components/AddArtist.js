@@ -7,7 +7,7 @@ const AddArtist = ({ filteredArtistData }) => {
     album: "",
   });
 
-  console.log(filteredArtistData);
+  //console.log(filteredArtistData);
 
   const handleSubmit = (e) => {
     e.preventDefault();
