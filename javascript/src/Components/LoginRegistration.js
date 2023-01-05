@@ -1,5 +1,6 @@
 import{useState} from 'react';
 
+const userLoginUrl='/user'
 
 function LoginRegistration(){
 
@@ -21,6 +22,10 @@ const [userToLogin, updateUserToLoginInfo]=useState(
         password:''
     }
 )
+console.log("State of userToLogin: ", userToLogin)
+
+
+
 const handleUserLoginOnChange=(synthEvent)=>{
 
 updateUserToLoginInfo({...userToLogin, [synthEvent.target.name]: synthEvent.target.value})
@@ -28,6 +33,17 @@ updateUserToLoginInfo({...userToLogin, [synthEvent.target.name]: synthEvent.targ
 
 const handleLoginSubmit=(synthEvent)=>{
   synthEvent.preventDefault()
+
+
+  fetch(userLoginUrl,
+  {
+    method: "POST",
+    headers: {'Content-Type': "application/json"},
+    body: JSON.stringify(userToLogin)
+  }
+  )
+  .then(r=>r.json())
+  .then(console.log)
 }
 
 return(
