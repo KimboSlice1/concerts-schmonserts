@@ -9,6 +9,9 @@ class SessionsController < ApplicationController
   if user_to_find_to_login #now we want to verify their password
 
     if user_to_find_to_login.authenticate(params[:password])
+
+      session[:user_id] =user_to_find_to_login.id
+      render json: user_to_find_to_login
       render json: user_to_find_to_login
 
     else 
