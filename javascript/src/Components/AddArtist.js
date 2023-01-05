@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import {Routes, Route} from "react-router-dom"
 
-  const AddArtist = (artistDataInfo, concertData, deleteArtist) => {
-      
+  const AddArtist = ({filteredArtistData, handleDeleteArtist, setConcerts}) => {
     const [artistData, setArtistData] = useState({
       name: "",
       genre: "",
@@ -17,7 +16,7 @@ import {Routes, Route} from "react-router-dom"
           body: JSON.stringify(artistData)
       }).then( r => r.json())
         .then(data =>{
-          setArtistData([...artistDataInfo, data])
+          setArtistData([...filteredArtistData, data])
           setArtistData(data)
         })
   }
