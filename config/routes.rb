@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
 
 post '/login', to:'sessions#create'
-post '/login', to:'sessions#login'
+
 #   delete :logout, to: "sessions#logout"
 #   get :logged_in, to: "sessions#logged_in"
 #   resources :registrations, only: [:create]
