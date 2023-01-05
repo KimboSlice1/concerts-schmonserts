@@ -1,73 +1,87 @@
-import {useState} from 'react'
+import { useState } from "react";
 
-function ConcertContainer({addConcert, concerts}) {
-    const [formData, setFormData] = useState({
-        city: "",
-        date: "",
-        description: ""
+function ConcertsContainer({ addConcert, concerts }) {
+  const [formData, setFormData] = useState({
+    city: "",
+    date: "",
+    description: "",
+    artist_id: "",
+  });
+  const [errors, setErrors] = useState([]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+  const handleSubmit = (e) => {
+    
+    e.preventDefault();
+    fetch("/concerts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
     })
-    const [errors, setErrors] = useState([])
-   
-    const handleChange = (e) => {
-      const {name, value} = e.target
-      setFormData({ ...formData, [name]: value})
-    }
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        fetch("/concerts", {
-            method: "POST",
-            headers:{"Content-Type": "application/json"},
-            body: JSON.stringify({...formData, ongoing:true})
-        })
-        .then(r => r.json())
-        .then(addConcert)
-        
-    }
-  
-// console.log(concerts)
+      .then((r) => r.json())
+      .then(addConcert);
+  };
 
-return (
+  // console.log(concerts)
+
+  return (
     <form onSubmit={handleSubmit}>
       <label>
         City:
-        <input type="text" 
-               name="city" 
-               value={formData.city} 
-               onChange={handleChange} />
+        <input
+          type="text"
+          name="city"
+          value={formData.city}
+          onChange={handleChange}
+        />
       </label>
       <br />
       <label>
         Date:
-        <input type="date" 
-               name="date" 
-               value={formData.date} 
-               onChange={handleChange} />
+        <input
+          type="date"
+          name="date"
+          value={formData.date}
+          onChange={handleChange}
+        />
       </label>
       <br />
       <label>
         Description:
-        <textarea name="description" 
-                  value={formData.description} 
-                  onChange={handleChange} />
+        <textarea
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+        />
       </label>
       <br />
       <label>
         Artist:
-        <select name="artistId" 
-                value={formData.artistId} 
-                onChange={handleChange}>
+        <select
+          name="artist_id"
+          value={formData.artist_id}
+          onChange={handleChange}
+        >
           {/* Render options for all available artists */}
-          {concerts.map(concerts => ( 
-            <option  value={concerts.artist.id}>{concerts.artist.name}</option>
-          ))}
-          
+          {concerts.map((concert) => {
+            if (concert.artist && concert.artist.id) {
+              // added check for artist and id properties
+              return (
+                <option value={concert.artist.id}>{concert.artist.name}</option>
+              );
+            }
+            return null;
+          })}
         </select>
       </label>
       <br />
-      {/* The userId can be set to the current user's ID here */}
-      {/* <input type="hidden" name="userId" value={currentUser.d} /> */}
-      <button type="submit">Create Concert</button>
+      {/* The user_id can be set to the current user's ID here */}
+      {/* <input type="hidden" name="user_id" value={currentUser.id} /> */}
+      <button type="submit">Create concerts</button>
     </form>
   );
 }
-export default ConcertContainer
+export default ConcertsContainer;

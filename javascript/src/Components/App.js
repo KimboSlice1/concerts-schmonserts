@@ -58,7 +58,7 @@ return (
           
           <Route path="/" element={ <HomePage />  } />
        
-          <Route path="/TheConcerts" element={ <ConcertContainer concerts={concerts} addConcert={addConcert} setConcerts={setConcerts} handleDeleteConcert={handleDeleteConcert}  />}/>
+          <Route path="/Concerts" element={ <ConcertContainer concerts={concerts} addConcert={addConcert} setConcerts={setConcerts} handleDeleteConcert={handleDeleteConcert}  />}/>
           <Route path="/search" element={ <Search searchText={searchText} setSearchText={setSearchText}/>}  />
           <Route path="/Artists/*" element={ <Artist filteredArtistData={filteredArtistData}  setConcerts={setConcerts}/>} /> 
           <Route path="/AddArtist" element={ <AddArtist filteredArtistData={filteredArtistData}  setConcerts={setConcerts}/> }/>
