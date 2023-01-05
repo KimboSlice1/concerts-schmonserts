@@ -7,7 +7,7 @@ function HomePage(){
 return(
     <div>
         <h1>SUP</h1>
-        <LoginRegistration login={LoginRegistration} />Yo<LoginRegistration/>
+        <LoginRegistration login={LoginRegistration} />
     </div>
 )
 }
