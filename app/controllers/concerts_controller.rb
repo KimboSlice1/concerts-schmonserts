@@ -14,9 +14,9 @@ class ConcertsController < ApplicationController
     end
 
     def create
-        new_concert = Concert.create(new_concert_params)
+        new_concert = Concert.create!(concert_params)
         if new_concert.valid?
-            render json: new_concert
+            render json: new_concert, status: :created
         else
             render json: {"error": new_concert.errors.full_messages}, status: :unprocessable_entity
         end
@@ -34,7 +34,7 @@ class ConcertsController < ApplicationController
 
     def update
         found_concert = Concert.find_by_id(params[:id])
-        if found_concert.update(concert_params)
+        if found_concert.update!(concert_params)
             render json: found_concert, status: :ok
         else
             render json: found_concert.error, status: :unprocessable_entity
@@ -52,11 +52,8 @@ class ConcertsController < ApplicationController
     private ####
 
     def concert_params 
-        params.require(:Model).permit(:user_id, :artist_id, :city, :date)
+        params.permit( :city, :date, :description)
     end
 
-    def new_concert_params
-        params.require(:concert).permit(:user_id, :artist_id, :city, :date, :description)
-    end
 end
 

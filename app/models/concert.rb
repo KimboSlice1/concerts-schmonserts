@@ -1,5 +1,5 @@
 class Concert < ApplicationRecord
-  belongs_to :artist, class_name: 'Artist', dependent: :destroy
-  belongs_to :user
-  
+  belongs_to :artist, dependent: :destroy, optional:true
+  belongs_to :user, optional:true
+ 
 end

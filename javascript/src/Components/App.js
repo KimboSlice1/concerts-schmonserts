@@ -22,14 +22,17 @@ function App() {
         )
   }, [])
 
+
+  const addConcert = (concert) => setConcerts(current => [...current, concert])
+
 // search filter 
 const [searchText, setSearchText] = useState("")
 
-const filteredConcertData = concerts.filter((eachDataObj) => {
-  // console.log(eachDataObj.city)
-  return eachDataObj.city.toLowerCase().includes(searchText.toLowerCase()) ||
-         eachDataObj.description.toLowerCase().includes(searchText.toLowerCase()) 
-})
+// const filteredConcertData = concerts.filter((eachDataObj) => {
+//   // console.log(eachDataObj.city)
+//   return eachDataObj.city.toLowerCase().includes(searchText.toLowerCase()) ||
+//          eachDataObj.description.toLowerCase().includes(searchText.toLowerCase()) 
+// })
 
 // delete concert handler
 function handleDeleteConcert(id) {
@@ -42,7 +45,7 @@ function handleDeleteConcert(id) {
   const filteredArtistData = concerts.map((eachDataObj) => {
     return eachDataObj.artist
   })
-    //console.log(filteredArtistData)
+    // console.log(filteredArtistData)
 
   // handle artist delete
     function handleDeleteArtist(id) {
@@ -61,7 +64,7 @@ function handleDeleteConcert(id) {
           
           <Route path="/" element={ <HomePage />  } />
        
-          <Route path="/TheConcerts" element={ <ConcertContainer filteredConcertData={filteredConcertData} setConcerts={setConcerts} handleDeleteConcert={handleDeleteConcert}  />}/>
+          <Route path="/TheConcerts" element={ <ConcertContainer concerts={concerts} addConcert={addConcert} setConcerts={setConcerts} handleDeleteConcert={handleDeleteConcert}  />}/>
           <Route path="/search" element={ <Search searchText={searchText} setSearchText={setSearchText}/>}  />
           <Route path="/Artists/*" element={ <Artist filteredArtistData={filteredArtistData} handleDeleteArtist={handleDeleteArtist} setConcerts={setConcerts}/>} /> 
           <Route path="/AddArtist" element={ <AddArtist filteredArtistData={filteredArtistData} handleDeleteArtist={handleDeleteArtist} setConcerts={setConcerts}/> }/>
