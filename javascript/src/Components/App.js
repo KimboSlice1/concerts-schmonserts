@@ -6,6 +6,7 @@ import Search from './ConcertSearch'
 import HomePage from './Home'
 import ConcertContainer from './ConcertContainer';
 import Artist from "./Artist"
+import AddArtist from './AddArtist';
 
 
 
@@ -63,7 +64,7 @@ function handleDeleteConcert(id) {
           <Route path="/TheConcerts" element={ <ConcertContainer filteredConcertData={filteredConcertData} setConcerts={setConcerts} handleDeleteConcert={handleDeleteConcert}  />}/>
           <Route path="/search" element={ <Search searchText={searchText} setSearchText={setSearchText}/>}  />
           <Route path="/Artists/*" element={ <Artist filteredArtistData={filteredArtistData} handleDeleteArtist={handleDeleteArtist} setConcerts={setConcerts}/>} /> 
-          
+          <Route path="/AddArtist" element={ <AddArtist filteredArtistData={filteredArtistData} handleDeleteArtist={handleDeleteArtist} setConcerts={setConcerts}/> }/>
         </Routes>
 
     </div>
