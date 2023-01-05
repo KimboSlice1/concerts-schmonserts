@@ -1,4 +1,4 @@
-class ConcertsController < ApplicationController
+class ConcertController < ApplicationController
     
     def index
         render json: Concert.all
@@ -52,10 +52,11 @@ class ConcertsController < ApplicationController
     private ####
 
     def concert_params 
-        parmas.require.(:model).permit(:user_id, :artist_id, :city, :date)
+        params.require(:Model).permit(:user_id, :artist_id, :city, :date)
     end
 
     def new_concert_params
-        params.permit(:user_id, :artist_id, :city, :date, :description)
+        params.require(:concert).permit(:user_id, :artist_id, :city, :date, :description)
     end
 end
+

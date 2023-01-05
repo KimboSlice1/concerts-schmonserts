@@ -10,9 +10,9 @@ Artist.destroy_all
 Concert.destroy_all
 User.destroy_all
 
-u1 = User.create(username: "Nickphelps34", password_digest: 9362, email: "Nickphelps34@gmail.com", bio: "" )
-u2 = User.create(username: "kh582013", password_digest: 9362, email: "kh582013@gmail.com", bio: "" )
-u3 = User.create(username: "cmccoy115", password_digest: 9362, email: "caleb_mccoy115@yahoo.com", bio: "" )
+u1 = User.create!(username: "Nickphelps34", password_digest: '9362', password: 'password', email: "Nickphelps34@gmail.com", bio: "e" )
+u2 = User.create!(username: "kh582013", password_digest: '9362', password: 'password', email: "kh582013@gmail.com", bio: "e" )
+u3 = User.create!(username: "cmccoy115", password_digest: '9362', password: 'password', email: "caleb_mccoy115@yahoo.com", bio: "e" )
 
 puts "Seeding Artist..."
 a1 = Artist.create(name: "Subtronics", genre: "Electronic", album: "Fractals")
@@ -38,11 +38,11 @@ a20 = Artist.create(name: "Jeremy Zucker", genre: "Pop" , album: "Motions" )
 
 
 puts "Seeding Concerts..."
-Concert.create(artist_id: a5.id, user_id: u2.id, description: "", city: "Columbus", date: 02152023 )
-Concert.create(artist_id: a8.id, user_id: u2.id, description: "", city: "Columbus", date: 03272023)
-Concert.create(artist_id: a13.id, user_id: u1.id, description: "", city: "Grand Rapids", date: 06232023)
-Concert.create(artist_id: a18.id, user_id: u1.id, description: "", city: "Grand Rapids", date: 02152023)
-Concert.create(artist_id: a4.id, user_id: u3.id, description: "", city: "Nashville", date: 02022023)
-Concert.create(artist_id: a14.id, user_id: u3.id, description: "", city: "Nashville", date: 02242023)
+Concert.create!(artist_id: a5.id, user_id: u2.id, description: "", city: "Columbus", date: 02152023 )
+Concert.create!(artist_id: a8.id, user_id: u2.id, description: "", city: "Columbus", date: 03272023)
+Concert.create!(artist_id: a13.id, user_id: u1.id, description: "", city: "Grand Rapids", date: 06232023)
+Concert.create!(artist_id: a18.id, user_id: u1.id, description: "", city: "Grand Rapids", date: 02152023)
+Concert.create!(artist_id: a4.id, user_id: u3.id, description: "", city: "Nashville", date: 02022023)
+Concert.create!(artist_id: a14.id, user_id: u3.id, description: "", city: "Nashville", date: 02242023)
 
 puts "Seeding done"
