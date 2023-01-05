@@ -1,6 +1,6 @@
 import{useState} from 'react';
 
-const userLoginUrl='/user'
+const userLoginUrl='/login'
 
 function LoginRegistration(){
 
