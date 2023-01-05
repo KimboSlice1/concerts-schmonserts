@@ -30,22 +30,32 @@ return (
     <form onSubmit={handleSubmit}>
       <label>
         City:
-        <input type="text" name="city" value={formData.city} onChange={handleChange} />
+        <input type="text" 
+               name="city" 
+               value={formData.city} 
+               onChange={handleChange} />
       </label>
       <br />
       <label>
         Date:
-        <input type="date" name="date" value={formData.date} onChange={handleChange} />
+        <input type="date" 
+               name="date" 
+               value={formData.date} 
+               onChange={handleChange} />
       </label>
       <br />
       <label>
         Description:
-        <textarea name="description" value={formData.description} onChange={handleChange} />
+        <textarea name="description" 
+                  value={formData.description} 
+                  onChange={handleChange} />
       </label>
       <br />
       <label>
         Artist:
-        <select name="artistId" value={formData.artistId} onChange={handleChange}>
+        <select name="artistId" 
+                value={formData.artistId} 
+                onChange={handleChange}>
           {/* Render options for all available artists */}
           {concerts.map(concerts => ( 
             <option  value={concerts.artist.id}>{concerts.artist.name}</option>
