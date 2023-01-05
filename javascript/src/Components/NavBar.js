@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom'
 function NavBar() {
     return(
         <div className="navbar">
-            <h1>logout(placeholder)</h1>
+            <button type="submit">logout</button>
             <h1 className='nav-title'>Concert Schmconcert</h1>
             <NavLink className='nav-links' to="/">
                 Home

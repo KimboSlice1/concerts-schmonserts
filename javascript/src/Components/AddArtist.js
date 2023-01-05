@@ -1,7 +1,6 @@
 import React, {useState} from "react";
-import {Routes, Route} from "react-router-dom"
 
-  const AddArtist = ({filteredArtistData, handleDeleteArtist, setConcerts}) => {
+  const AddArtist = ({filteredArtistData,}) => {
     const [artistData, setArtistData] = useState({
       name: "",
       genre: "",
@@ -10,7 +9,7 @@ import {Routes, Route} from "react-router-dom"
     //console.log(artistDataInfo)
     const handleSubmit = (e) => {
       e.preventDefault()
-      fetch("/artist", {
+      fetch("/artists", {
           method: "POST",
           header:{"Content-Type": "application/json"},
           body: JSON.stringify(artistData)
@@ -33,7 +32,7 @@ import {Routes, Route} from "react-router-dom"
             <input className="input_field" value={artistData.name} placeholder="Name" name="name" type="text" onChange={handleChange}/>
             <input className="input_field" value={artistData.genre} placeholder="Genre" name="genre" type="text" onChange={handleChange}/>
             <input className="input_field" value={artistData.album} placeholder="Album" name="album" type="text" onChange={handleChange}/>
-
+            <button type="submit" onChange={handleChange}>submit</button>
             <br/>
           </form>
 
