@@ -7,9 +7,11 @@ Rails.application.routes.draw do
 #   update later when adding delete and shit
 
 
-post '/login', to:'sessions#create'
+  post '/login', to:'sessions#create'
 
   get    "/userInSession", to:"sessions#get_logged_in_user" 
+  delete '/logout', to: 'sessions#logout'
+
 #   delete :logout, to: "sessions#logout"
 #   get :logged_in, to: "sessions#logged_in"
 #   resources :registrations, only: [:create]

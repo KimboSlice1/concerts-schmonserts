@@ -51,6 +51,11 @@ class SessionsController < ApplicationController
 
   end
   
+  def logout
+    reset_session
+    head :ok
+  end
+  
   def index
     session[:session_hello] ||= "World"
     cookies[:cookies_hello] ||= "World"

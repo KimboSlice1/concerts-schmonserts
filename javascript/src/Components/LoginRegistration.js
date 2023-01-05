@@ -61,9 +61,15 @@ return(
       />
 
     <input type="submit"/>
-
+    
 
     </form>
+    <div>
+    <form action="/logout" method="delete">
+  <button type="submit">Log out</button>
+</form>
+
+    </div>
     </div>
 )}
     export default LoginRegistration;

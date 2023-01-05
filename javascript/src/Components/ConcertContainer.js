@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function ConcertsContainer({ addConcert, concerts }) {
   const [formData, setFormData] = useState({
@@ -8,11 +8,18 @@ function ConcertsContainer({ addConcert, concerts }) {
     artist_id: "",
   });
   const [errors, setErrors] = useState([]);
-
+  const [artists, setArtists] = useState([]);
+  useEffect( () => {
+    fetch('/artists')
+    .then(r=> r.json())
+    .then(setArtists)
+  }, [])
+  console.log(artists)
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
   const handleSubmit = (e) => {
     
     e.preventDefault();
@@ -62,7 +69,7 @@ function ConcertsContainer({ addConcert, concerts }) {
         Artist:
         <select
           name="artist_id"
-          value={formData.artist_id}
+          
           onChange={handleChange}
         >
           {/* Render options for all available artists */}
@@ -80,8 +87,12 @@ function ConcertsContainer({ addConcert, concerts }) {
       <br />
       {/* The user_id can be set to the current user's ID here */}
       {/* <input type="hidden" name="user_id" value={currentUser.id} /> */}
-      <button type="submit">Create concerts</button>
+      
+        <button type="submit">submit</button>
+      
+
     </form>
+    
   );
 }
 export default ConcertsContainer;
