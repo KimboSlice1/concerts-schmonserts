@@ -14,6 +14,7 @@ const concertsSchmonsertsURL="/concerts"
 
 function App() {
   const [concerts, setConcerts] = useState([]);
+  const [user, setUser] = useState(null)
   useEffect(()=>{
     fetch(concertsSchmonsertsURL)
       .then(r => r.json())
@@ -24,7 +25,7 @@ function App() {
 
 
   const addConcert = (concert) => setConcerts(current => [...current, concert])
-
+  const updateUser = (user) => setUser(user)
 // search filter 
 const [searchText, setSearchText] = useState("")
 

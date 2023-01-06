@@ -3,10 +3,11 @@ class UsersController < ApplicationController
         render json: User.all
     end
     
-    def show 
-        user = User.find(params[:id])
+    def show
+        # Find the user using the cookie value
+        user = User.find(cookies[:user_id])
         render json: user, status: :ok
-    end 
+      end
 
     def create
         user = User.create!(user_params)

@@ -5,9 +5,6 @@ function Logout() {
   const navigate = useNavigate()
   
   function handleLogout() {
-    // clear the user's authentication token from local storage
-    localStorage.removeItem('authToken')
-    // invalidate the user's authentication token on the server
     fetch('/sessions', {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' }

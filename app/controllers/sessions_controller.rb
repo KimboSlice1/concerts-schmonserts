@@ -2,10 +2,12 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(username: params[:username])
-  
+
     if user&.authenticate(params[:password])
       # Log in the user and return their information
       render json: user, status: :ok
+      # Create a cookie with a long expiration time
+      cookies[:user_id] = { value: user.id, expires: 1.year.from_now }
     else
       # Return an error message if the login credentials are invalid
       render json: { errors: 'Invalid username or password' }, status: :unauthorized
@@ -29,10 +31,17 @@ class SessionsController < ApplicationController
  
   def destroy
     user = User.find_by(id: params[:id])
+    #Deletes the cookie for the seassion
+    cookies.delete :user_id
     head :ok
   end
 
-
+  # def click
+  #     cookies[:click] ||= 0
+  #     cookies[:click] = cookies[:click].to_i + 1
+  #     session[:click] ||= 0
+  #     session[:click] += 1
+  # end
  
   
   
