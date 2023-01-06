@@ -9,9 +9,6 @@ function NavBar() {
             <NavLink className='nav-links' to="/">
                 Home
             </NavLink>
-            <NavLink className='nav-links' to="/SignUp">
-                SignUp
-            </NavLink>
             <NavLink className='nav-links' to="/Concerts">
                 Concerts
             </NavLink>
@@ -23,6 +20,9 @@ function NavBar() {
             </NavLink>
             <NavLink className='nav-links' to="/AddArtist">
                 Add an Artist
+            </NavLink>
+            <NavLink className='nav-links' to="/SignUp">
+                SignUp
             </NavLink>
             </div>
         </div>

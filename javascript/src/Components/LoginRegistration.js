@@ -73,6 +73,9 @@ return(
 
 
     </form>
+
+
     </div>
+    
 )}
     export default LoginRegistration;

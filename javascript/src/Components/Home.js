@@ -6,7 +6,7 @@ function HomePage(){
 
 return(
     <div>
-        <h1>SUP</h1>
+        <h1>Do we wanna put our name here? What is our name?</h1>
         <LoginRegistration login={LoginRegistration} />
     </div>
 )
