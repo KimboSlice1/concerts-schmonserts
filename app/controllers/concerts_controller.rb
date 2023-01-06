@@ -14,7 +14,7 @@ class ConcertsController < ApplicationController
     end
 
     def create
-        byebug
+        # byebug
         new_concert = Concert.create!(concert_params)
 
         if new_concert.valid?
@@ -54,7 +54,7 @@ class ConcertsController < ApplicationController
     private ####
 
     def concert_params 
-        params.permit( :city, :date, :description, :artist_id, :user_id)
+        params.permit( :city, :date, :description, :artist_id)
     end
 
 end

@@ -5,16 +5,32 @@ function ConcertsContainer({ addConcert, concerts }) {
     city: "",
     date: "",
     description: "",
-    artist_id: "",
+    
   });
   const [errors, setErrors] = useState([]);
   const [artists, setArtists] = useState([]);
-  useEffect( () => {
+  
+  //fetch to get artist id for the drop down
+  useEffect( () => { 
     fetch('/artists')
     .then(r=> r.json())
     .then(setArtists)
   }, [])
   console.log(artists)
+  
+  const handleArtistChange = e => {
+    console.log(`just selected movie id: ${e.target.value}`)
+  }
+  const optionElements = artists.map( artist => {
+    return (
+      <option key={artist.id} value={artist.id}>
+          {artist.name}
+      </option>
+    )
+  }
+
+  )
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -68,20 +84,10 @@ function ConcertsContainer({ addConcert, concerts }) {
       <label>
         Artist:
         <select
-          name="artist_id"
-          
-          onChange={handleChange}
+        onChange={handleArtistChange}
         >
-          {/* Render options for all available artists */}
-          {concerts.map((concert) => {
-            if (concert.artist && concert.artist.id) {
-              // added check for artist and id properties
-              return (
-                <option value={concert.artist.id}>{concert.artist.name}</option>
-              );
-            }
-            return null;
-          })}
+          
+          {optionElements}
         </select>
       </label>
       <br />
