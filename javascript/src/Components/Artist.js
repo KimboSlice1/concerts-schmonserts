@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from "react"
+import { useNavigate } from "react-router-dom"
 
 
 
-const Artist = ({filteredArtistData, setConcerts}) => {
+const Artist = ({filteredArtistData, setConcerts, path = '/artists'}) => {
   
   const [singleArtistData, setSingleArtistData] = useState([])
   useEffect(() => {
@@ -16,7 +17,7 @@ const Artist = ({filteredArtistData, setConcerts}) => {
   let artistDataInfo = (filteredArtistData);
   let concertData = (setConcerts);
 
-
+  const navigate = useNavigate()
 
   return (
     <div>
@@ -30,6 +31,7 @@ const Artist = ({filteredArtistData, setConcerts}) => {
               <option key={singleArtistData.id} value={singleArtistData.id}>{singleArtistData.name}</option>
               )})}
          </select>
+         <button onClick={ () => navigate(path)}>back</button>
         <h3 className='artist-info'>Text Box</h3>
     </div>
 
