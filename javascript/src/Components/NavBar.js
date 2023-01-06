@@ -10,7 +10,7 @@ function NavBar() {
                 Home
             </NavLink>
             <NavLink className='nav-links' to="/Concerts">
-                Concerts
+                Add Concerts
             </NavLink>
             <NavLink className='nav-links' to="/Artists">
                 Artists

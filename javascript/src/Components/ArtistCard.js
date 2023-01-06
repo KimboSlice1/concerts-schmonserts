@@ -1,13 +1,26 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
+
+  
   const ArtistCard = ({singleArtistData}) => {
-    //console.log(singleArtistData)
+    // const [artistCard, setArtistCard] = useState()
+
+    // useEffect(() => {
+    //   fetch(`/artists/${id}`)
+    //   .then((r) => r.json())
+    //   .then(setArtistCard)
+    // }, [])
+    
+    
+    console.log(singleArtistData)
+    // const params = useParams()
+    singleArtistData = []
     
     return(
       <div>
-        <div className="Artist Info"></div>
-        <h1>{singleArtistData.name}</h1>
+          <h1>Artist stuff</h1>
 
 
 

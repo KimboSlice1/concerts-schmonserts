@@ -1,13 +1,16 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useParams} from "react"
 import { Route, Routes, useNavigate, createSearchParams } from "react-router-dom"
 import { redirect } from "react-router-dom"
+import ArtistCard from './ArtistCard'
 
   //const [routeId] = useState(true)
   const Artist = ({filteredArtistData, setConcerts, path = '/Artists'}) => {
-  
+  // const params = useParams();
+
+
   const [singleArtistData, setSingleArtistData] = useState([])
   useEffect(() => {
-    fetch(`/artists`)
+    fetch(`/artists/`)
     .then((r) => r.json())
     .then(setSingleArtistData)
   }, [])
@@ -17,13 +20,13 @@ import { redirect } from "react-router-dom"
   const navigate = useNavigate()
   // const search = useLocation().search;
   // const id = new URLSearchParams(search).get("id");
-  // const params = (`${:id}`)
+  //const params = ()
+  console.log()
   const goToArtistId = () =>
     navigate({
       pathname: "/artists",
-      search: `?${createSearchParams()}`
       })
-  
+
   
   return (
     <div>
@@ -35,20 +38,18 @@ import { redirect } from "react-router-dom"
 
         <h1 className='artist-name'>Artists!!</h1>
          <select onChange={goToArtistId}             >
-          
-          
-          
           {singleArtistData.map( singleArtistData => {
             return ( 
               <option
                 key={singleArtistData.id} 
                 value={singleArtistData.id}>
                   {singleArtistData.name}
-              </option>
-              )})}
-         </select>
+              </option>)})}
+          </select>
          <button onClick={ () => navigate(path)}>back</button>
-        <h3 className='artist-info'>Text Box</h3>
+
+         <ArtistCard singleArtistData={singleArtistData}/>
+        <h3 className='artist-info'></h3>
     </div>
 
   )

@@ -95,8 +95,8 @@ function ConcertsContainer({ addConcert, concerts }) {
         </select>
       </label>
       <br />
-      {/* The user_id can be set to the current user's ID here */}
-      {/* <input type="hidden" name="user_id" value={currentUser.id} /> */}
+      {/* The user_id can be set to the current user's ID here 
+      <input type="hidden" name="user_id" value={currentUser.id} /> */}
       
         <button 
         className="concert-submit-button"

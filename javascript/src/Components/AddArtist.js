@@ -63,10 +63,6 @@ const AddArtist = ({ filteredArtistData }) => {
         <button type="submit">submit</button>
         <br />
       </form>
-
-      <h2 className="artist-name">Killaz in the Jungle</h2>
-
-      <h3 className="artist-info">Text Box</h3>
     </div>
   );
 };
