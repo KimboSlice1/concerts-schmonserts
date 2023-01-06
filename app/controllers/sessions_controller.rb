@@ -1,31 +1,5 @@
 class SessionsController < ApplicationController
 
-  # def login
-  #   user_to_find_to_login=User.find_by(username: params[:username])
-  # if user_to_find_to_login #now we want to verify their password
-  #   if user_to_find_to_login.authenticate(params[:password])
-
-  #     session[:user_id] =user_to_find_to_login.id
-  #     render json: user_to_find_to_login
-  #     render json: user_to_find_to_login
-
-  #   else 
-  #     render json: {error: "**Check Your Password, Homie**"}
-  #   end
-
-  #   else
-  #     render json: {error: "Username OR Password Don't Match "}
-  #   end
-  # end
-# include CurrentUserConcern
-
-  # def create
-  #   user = User
-  #   .find_by(email: params["user"]["email"])
-  # ^^ email is passed into user as a nested value
-  #   .try(:authenticate, params["user"]["password"])
-  # end
-
   def create
     user = User.find_by(username: params[:username])
   
@@ -51,10 +25,16 @@ class SessionsController < ApplicationController
 
   end
   
-  def logout
-    reset_session
+  
+ 
+  def destroy
+    user = User.find_by(id: params[:id])
     head :ok
   end
+
+
+ 
+  
   
   def index
     session[:session_hello] ||= "World"

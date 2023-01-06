@@ -8,7 +8,7 @@ import ConcertContainer from './ConcertContainer';
 import Artist from "./Artist"
 import AddArtist from './AddArtist';
 import SignUp from './SignUp';
-
+import Logout from './Logout';
 
 const concertsSchmonsertsURL="/concerts"
 
@@ -53,7 +53,7 @@ return (
   
   <div className="App">
       <NavBar/>
-
+        <Logout />
         <Routes>
           
           <Route path="/" element={ <HomePage />  } />
