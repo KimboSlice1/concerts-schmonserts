@@ -55,6 +55,7 @@ function ConcertsContainer({ addConcert, concerts }) {
       <label>
         City:
         <input
+          className="concert-text-box"
           type="text"
           name="city"
           value={formData.city}
@@ -65,6 +66,7 @@ function ConcertsContainer({ addConcert, concerts }) {
       <label>
         Date:
         <input
+          className="concert-text-box"
           type="date"
           name="date"
           value={formData.date}
@@ -75,6 +77,7 @@ function ConcertsContainer({ addConcert, concerts }) {
       <label>
         Description:
         <textarea
+          className="concert-description-text-box"
           name="description"
           value={formData.description}
           onChange={handleChange}
@@ -84,6 +87,7 @@ function ConcertsContainer({ addConcert, concerts }) {
       <label>
         Artist:
         <select
+        className="concert-text-box"
         onChange={handleArtistChange}
         >
           
@@ -94,7 +98,9 @@ function ConcertsContainer({ addConcert, concerts }) {
       {/* The user_id can be set to the current user's ID here */}
       {/* <input type="hidden" name="user_id" value={currentUser.id} /> */}
       
-        <button type="submit">submit</button>
+        <button 
+        className="concert-submit-button"
+        type="submit">submit</button>
       
 
     </form>
