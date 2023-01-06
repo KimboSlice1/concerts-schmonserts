@@ -9,6 +9,7 @@ import Artist from "./Artist"
 import AddArtist from './AddArtist';
 import SignUp from './SignUp';
 import Logout from './Logout';
+import Error from './Error';
 
 const concertsSchmonsertsURL="/concerts"
 
@@ -64,6 +65,7 @@ return (
           <Route path="/Artists/*" element={ <Artist filteredArtistData={filteredArtistData}  setConcerts={setConcerts}/>} /> 
           <Route path="/AddArtist" element={ <AddArtist filteredArtistData={filteredArtistData}  setConcerts={setConcerts}/> }/>
           <Route path="/signUp" element={<SignUp />} />
+          <Route path="*" element={<Error/>}/>
         </Routes>
 
     </div>

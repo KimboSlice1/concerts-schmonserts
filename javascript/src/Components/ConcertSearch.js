@@ -12,7 +12,7 @@ function Search({setSearchText, searchText}) {
                 onChange={(e) => setSearchText(e.target.value)}
                 value={searchText}
             />
-            
+            <button onSubmit={setSearchText} value={searchText}>submit</button>
         </div>
     );
 }
