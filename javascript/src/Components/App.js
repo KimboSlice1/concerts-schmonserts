@@ -7,7 +7,7 @@ import HomePage from './Home'
 import ConcertContainer from './ConcertContainer';
 import Artist from "./Artist"
 import AddArtist from './AddArtist';
-
+import SignUp from './SignUp';
 
 
 const concertsSchmonsertsURL="/concerts"
@@ -62,6 +62,7 @@ return (
           <Route path="/search" element={ <Search searchText={searchText} setSearchText={setSearchText}/>}  />
           <Route path="/Artists/*" element={ <Artist filteredArtistData={filteredArtistData}  setConcerts={setConcerts}/>} /> 
           <Route path="/AddArtist" element={ <AddArtist filteredArtistData={filteredArtistData}  setConcerts={setConcerts}/> }/>
+          <Route path="/signUp" element={<SignUp />} />
         </Routes>
 
     </div>
