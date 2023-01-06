@@ -10,7 +10,7 @@ const Artist = ({filteredArtistData, setConcerts}) => {
     .then((r) => r.json())
     .then(setSingleArtistData)
   }, [])
-  console.log(singleArtistData.id)  
+  //console.log(singleArtistData.id)  
 
 
   let artistDataInfo = (filteredArtistData);
@@ -22,12 +22,13 @@ const Artist = ({filteredArtistData, setConcerts}) => {
     <div>
 
         <h1 className='artist-name'>Artists!!</h1>
-         <select>
+         <select onChange={ e => {
+          console.log(`just selected artist id: ${e.target.value}`)
+         }}>
           {singleArtistData.map( singleArtistData => {
             return ( 
               <option key={singleArtistData.id} value={singleArtistData.id}>{singleArtistData.name}</option>
-            )
-          })}
+              )})}
          </select>
         <h3 className='artist-info'>Text Box</h3>
     </div>
