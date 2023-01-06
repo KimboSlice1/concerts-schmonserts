@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :concerts, only: [ :index, :show, :create, :update, :destroy]
-  resources :artists
+  resources :artists, only: [ :show, :create, :index]
   resources :users, only: [:login, :show, :create]
   resources :sessions, only: [:create]
   resources :addartists, only: [ :show ]

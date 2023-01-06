@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from "react"
 import { useNavigate } from "react-router-dom"
+import { redirect } from "react-router-dom"
 
-
-
-const Artist = ({filteredArtistData, setConcerts, path = '/artists'}) => {
+  //const [routeId] = useState(true)
+  const Artist = ({filteredArtistData, setConcerts, path = '/Artists'}) => {
   
   const [singleArtistData, setSingleArtistData] = useState([])
   useEffect(() => {
@@ -13,9 +13,17 @@ const Artist = ({filteredArtistData, setConcerts, path = '/artists'}) => {
   }, [])
   //console.log(singleArtistData.id)  
 
+  // const loader = async () => {
+  //   const user = await getUser()
+  //   if (!user) {
+  //     return redirect("/artist/`${id}`")
+  //   }
+  // }
 
-  let artistDataInfo = (filteredArtistData);
-  let concertData = (setConcerts);
+
+
+  // let artistDataInfo = (filteredArtistData);
+  // let concertData = (setConcerts);
 
   const navigate = useNavigate()
 
@@ -24,11 +32,15 @@ const Artist = ({filteredArtistData, setConcerts, path = '/artists'}) => {
 
         <h1 className='artist-name'>Artists!!</h1>
          <select onChange={ e => {
-          console.log(`just selected artist id: ${e.target.value}`)
-         }}>
+          console.log(`just selected artist id: ${e.target.value}`)}}
+          onClick={() => navigate(`/artists/:id`)}              >
           {singleArtistData.map( singleArtistData => {
             return ( 
-              <option key={singleArtistData.id} value={singleArtistData.id}>{singleArtistData.name}</option>
+              <option
+                key={singleArtistData.id} 
+                value={singleArtistData.id}>
+                  {singleArtistData.name}
+              </option>
               )})}
          </select>
          <button onClick={ () => navigate(path)}>back</button>
