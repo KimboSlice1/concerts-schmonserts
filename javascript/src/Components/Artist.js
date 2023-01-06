@@ -1,21 +1,34 @@
-import React, {useState} from "react"
-import AddArtist from "./AddArtist"
-import { Route, Routes } from "react-router-dom"
-// import AddArtist from "/addArtist"
+import React, {useState, useEffect} from "react"
 
-const Artist = ({filteredArtistData, handleDeleteArtist, setConcerts}) => {
-  let deleteArtist = (handleDeleteArtist);
+
+
+const Artist = ({filteredArtistData, setConcerts}) => {
+  
+  const [singleArtistData, setSingleArtistData] = useState([])
+  useEffect(() => {
+    fetch(`/artists`)
+    .then((r) => r.json())
+    .then(setSingleArtistData)
+  }, [])
+  console.log(singleArtistData.id)  
+
+
   let artistDataInfo = (filteredArtistData);
   let concertData = (setConcerts);
 
-//console.log(concertData)
 
 
   return (
     <div>
 
-        <h2 className='artist-name'>Killaz in the Jungle</h2>
-
+        <h1 className='artist-name'>Artists!!</h1>
+         <select>
+          {singleArtistData.map( singleArtistData => {
+            return ( 
+              <option key={singleArtistData.id} value={singleArtistData.id}>{singleArtistData.name}</option>
+            )
+          })}
+         </select>
         <h3 className='artist-info'>Text Box</h3>
     </div>
 
