@@ -4,11 +4,12 @@ function NavBar() {
     return(
         <div className="navbar">
             
-            <h1 className='nav-title'>Concert Schmconcert</h1>
+            <h1 className='nav-title'></h1>
+            <div className='all-nav-links'>
             <NavLink className='nav-links' to="/">
                 Home
             </NavLink>
-            <NavLink className='nav-link-signup' to="/SignUp">
+            <NavLink className='nav-links' to="/SignUp">
                 SignUp
             </NavLink>
             <NavLink className='nav-links' to="/Concerts">
@@ -20,9 +21,10 @@ function NavBar() {
             <NavLink className='nav-links' to="/Search">
                 Search for Concerts
             </NavLink>
-            <NavLink className='nav-link' to="/AddArtist">
+            <NavLink className='nav-links' to="/AddArtist">
                 Add an Artist
             </NavLink>
+            </div>
         </div>
     )
 }

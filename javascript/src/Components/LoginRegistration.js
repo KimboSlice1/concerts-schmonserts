@@ -50,17 +50,26 @@ return(
 <div>
 <h2>Wanna login?</h2>
 
-    <form onSubmit={handleLoginSubmit} >
+    <form 
+    className="login-text-box"
+    onSubmit={handleLoginSubmit} >
 
-      <input onChange={handleUserLoginOnChange}
+      <input 
+      className= 'login-text-box'
+      onChange={handleUserLoginOnChange}
       name='username'
+      placeholder= 'username'
       />
     
-      <input type='password'
+      <input 
+      className= "login-text-box" type='password'
       onChange={handleUserLoginOnChange}name='password'
+      placeholder= 'password'
       />
 
-    <input type="submit"/>
+    <input 
+    className= "submit-button"
+    type="submit"/>
 
 
     </form>
