@@ -28,6 +28,8 @@ function App() {
   const addConcert = (concert) => setConcerts(current => [...current, concert])
   const updateUser = (user) => setUser(user)
 // search filter 
+
+  const currentUser = () => {   }
 const [searchText, setSearchText] = useState("")
 
 // const filteredConcertData = concerts.filter((eachDataObj) => {
